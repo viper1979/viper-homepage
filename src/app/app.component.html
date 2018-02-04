@@ -1,9 +1,15 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<br>
-<app-header></app-header>
-
-<app-menu></app-menu>
-
-<app-stats></app-stats>
-
-<app-footer></app-footer>
+<div class="layout">
+  <div class="layout-item">
+      <app-header></app-header>
+  </div>
+  <div class="layout-item">
+      <app-menu></app-menu>
+  </div>
+  <div class="layout-item">
+      <router-outlet>
+      </router-outlet>
+  </div>
+  <div class="layout-item">
+      <app-footer></app-footer>
+  </div>
+</div>

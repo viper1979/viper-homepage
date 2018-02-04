@@ -17,12 +17,11 @@ import { MenuItemComponent } from './menu-item/menu-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { StatsComponent } from './stats/stats.component';
 
-// const appRoutes: Routes = [
-//   {
-//   },
-//   {
-//   }
-// ];
+const appRoutes: Routes = [
+  { path: 'stats', component: StatsComponent },
+  // default route, when nothing match
+  { path: '**', component: StatsComponent }
+];
 
 @NgModule({
   declarations: [
@@ -37,10 +36,10 @@ import { StatsComponent } from './stats/stats.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    // RouterModule.forRoot(
-    //   appRoutes,
-    //   { enableTracing: false }
-    // )
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: false }
+    )
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },
