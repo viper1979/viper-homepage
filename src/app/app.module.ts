@@ -1,18 +1,49 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
+// services
 
+// components
+import { HeaderComponent } from './header/header.component';
+
+// pipes
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
+import { MenuItemComponent } from './menu-item/menu-item.component';
+import { FooterComponent } from './footer/footer.component';
+import { StatsComponent } from './stats/stats.component';
 
+// const appRoutes: Routes = [
+//   {
+//   },
+//   {
+//   }
+];
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    HeaderComponent,
+    MenuComponent,
+    MenuItemComponent,
+    FooterComponent,
+    StatsComponent
+],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    // RouterModule.forRoot(
+    //   appRoutes,
+    //   { enableTracing: false }
+    // )
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'de-DE' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

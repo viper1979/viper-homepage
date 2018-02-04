@@ -1,0 +1,17 @@
+.customHr {
+  width: 95%;
+  font-size: 1px;
+  color: rgba(0, 0, 0, 0);
+  line-height: 1px;
+  background-color: grey;
+}
+
+.footer {
+  margin-top: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 8px;
+}
+
+.footer-body {
+  margin-top: 15px;
+}
