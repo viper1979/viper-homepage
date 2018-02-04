@@ -1,5 +1,7 @@
 .menu {
   font-family: droid sans mono, monospace;
-  margin-top: 8px;
-  margin-left: 15px;
+}
+
+.menu-body {
+  display: flex;
 }

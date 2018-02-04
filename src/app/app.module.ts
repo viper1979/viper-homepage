@@ -16,11 +16,12 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { StatsComponent } from './stats/stats.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: 'stats', component: StatsComponent },
   // default route, when nothing match
-  { path: '**', component: StatsComponent }
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     MenuComponent,
     MenuItemComponent,
     FooterComponent,
-    StatsComponent
+    StatsComponent,
+    NotFoundComponent
 ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-item',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuItemComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  data: any;
+
+  label: string;
+  url: string;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
+    this.label = this.data.label;
+    this.url = this.data.url;
+  }
+
+  navigate(event: any): void {
+    this.router.navigateByUrl(this.url);
   }
 
 }

@@ -1,5 +1,8 @@
 <div class="menu">
   <div class="menu-top"></div>
-  <div class="menu-body">Main | Stats | Bitcoin</div>
+  <!-- <div class="menu-body">Main | Stats | Bitcoin</div> -->
+  <div class="menu-body">
+    <app-menu-item [data]="item" *ngFor="let item of menuData"></app-menu-item>
+  </div>
   <div class="menu-bottom"></div>
 </div>

@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  menuData: any;
+
+  constructor() {
+    this.menuData = this.initMenuData();
+  }
 
   ngOnInit() {
   }
 
+  private initMenuData( ): any {
+    return [
+      { label: 'Main', url: '' },
+      { label: 'Stats', url: '/stats' },
+      { label: 'Bitcoin', url: '/bitcoin' }
+    ];
+  }
 }
