@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 // services
+import { StatsService } from './shared/services/stats.service';
 
 // components
 import { HeaderComponent } from './header/header.component';
@@ -21,7 +22,7 @@ import { StatsComponent } from './stats/stats.component';
 //   },
 //   {
 //   }
-];
+// ];
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { StatsComponent } from './stats/stats.component';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },
+    StatsService,
   ],
   bootstrap: [AppComponent]
 })
