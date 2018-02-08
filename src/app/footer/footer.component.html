@@ -3,7 +3,9 @@
         <div class="customHr">&nbsp;</div>
     </div>
     <div class="footer-body">
-      Privacy | About | Contact
+      <span (click)="this.router.navigateByUrl('/privacy')">Privacy</span> |
+      <span (click)="this.router.navigateByUrl('/disclaimer')">About</span> |
+      <span (click)="this.router.navigateByUrl('/contact')">Contact</span> |
       <p class="small-xs text-muted text-center">© 2018 - patricknoll.de</p>
     </div>
     <div class="footer-bottom">

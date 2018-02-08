@@ -16,10 +16,14 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuItemComponent } from './menu-item/menu-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { StatsComponent } from './stats/stats.component';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { DisclaimerComponent } from './static/disclaimer/disclaimer.component';
+import { PrivacyComponent } from './static/privacy/privacy.component';
+import { NotFoundComponent } from './static/not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: 'stats', component: StatsComponent },
+  { path: 'privacy', component: PrivacyComponent },
+  { path: 'disclaimer', component: DisclaimerComponent },
   // default route, when nothing match
   { path: '**', component: NotFoundComponent }
 ];
@@ -32,7 +36,9 @@ const appRoutes: Routes = [
     MenuItemComponent,
     FooterComponent,
     StatsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PrivacyComponent,
+    DisclaimerComponent
 ],
   imports: [
     BrowserModule,
