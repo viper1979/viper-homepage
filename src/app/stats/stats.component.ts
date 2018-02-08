@@ -23,7 +23,7 @@ export class StatsComponent implements OnInit, AfterViewInit {
     this.visitorChart = document.getElementById('visitorChart');
     this.visitorChartContext = this.visitorChart.getContext('2d');
 
-    let chart = new Chart(this.visitorChartContext, {
+    const chart = new Chart(this.visitorChartContext, {
       type: 'bar',
 
       data: {
