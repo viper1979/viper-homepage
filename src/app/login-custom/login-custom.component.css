@@ -1,0 +1,78 @@
+/* .ng-valid[required], .ng-valid.required  {
+  border-right: 5px solid #42A948;
+} */
+
+.ng-invalid:not(form)  {
+  border-bottom: 1px dashed #ff0000; /* red */
+}
+
+.login {
+  font-family: droid sans mono, monospace;
+  font-size: 13px;
+}
+
+.slim {
+  border: 1px solid;
+  border-color: hsl(0, 0%, 61%);
+}
+
+.holder {
+  border: 1px solid gray;
+  height: 30px;
+  width: 100px;
+  position:relative;
+  color: gray;
+  margin:10px;
+}
+div.holder:hover {
+  border: 1px solid rgb(51, 181, 229);
+}
+.holder input {
+  height: 28px;
+  border: 0px;
+  width: 90px;
+  font-weight: bold;
+  outline: none;
+  color: gray;
+  font-size: 13px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+}
+.holder input:focus {
+  color: black;
+}
+.holder input:focus[required="required"] {
+  background-color:rgb(241, 209, 209);
+}
+
+.holder .mask-left {
+  position: absolute;
+  top:-2px;
+  left:-2px;
+  width:2px;
+  height: 90%;
+  background-color:#fff;
+}
+.holder .mask-right {
+  position: absolute;
+  top:-2px;
+  right:-2px;
+  width:2px;
+  height: 90%;
+  background-color:#fff;
+}
+.holder .mask-top {
+  position: absolute;
+  top:-2px;
+  left:0px;
+  width:100%;
+  height:2px;
+  background-color:#fff;
+}
+
+.btn-submit {
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid;
+}

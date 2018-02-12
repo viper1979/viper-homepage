@@ -27,6 +27,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptors';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginCustomComponent } from './login-custom/login-custom.component';
 
 const appRoutes: Routes = [
   { path: 'stats', component: StatsComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     PrivacyComponent,
     DisclaimerComponent,
     AlertComponent,
-    LoginComponent
+    LoginComponent,
+    LoginCustomComponent
 ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<div class="login">
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="holder">
+      <input type="text" class="form-control slim" name="username" [(ngModel)]="model.username" placeholder="username" #username="ngModel" required />
+      <div class="mask-left"></div>
+      <div class="mask-right"></div>
+      <div class="mask-top"></div>
+    </div>
+
+    <div class="holder">
+      <input type="password" class="form-control slim" name="password" [(ngModel)]="model.password" placeholder="password" #password="ngModel" required />
+      <div class="mask-left"></div>
+      <div class="mask-right"></div>
+      <div class="mask-top"></div>
+    </div>
+
+    <button type="submit" class="btn-submit">Submit</button>
+  </form>
+</div>
