@@ -24,13 +24,16 @@ import { NotFoundComponent } from './static/not-found/not-found.component';
 import { AccessDeniedComponent } from './static/access-denied/access-denied.component';
 import { AlertComponent } from './alert/alert.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 // pipes
 import { AuthGuard } from './shared/guards/auth.guard';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptors';
 import { LoginCustomComponent } from './login-custom/login-custom.component';
+import { DonationLinkComponent } from './donation-link/donation-link.component';
 
 const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'stats', component: StatsComponent },
   { path: 'privacy', component: PrivacyComponent },
   { path: 'denied', component: AccessDeniedComponent },
@@ -43,6 +46,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     HeaderComponent,
     MenuComponent,
     MenuItemComponent,
@@ -54,7 +58,8 @@ const appRoutes: Routes = [
     AlertComponent,
     LoginComponent,
     LoginCustomComponent,
-    AccessDeniedComponent
+    AccessDeniedComponent,
+    DonationLinkComponent
 ],
   imports: [
     BrowserModule,

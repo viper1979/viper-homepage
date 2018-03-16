@@ -1,0 +1,11 @@
+<div class="donation-link">
+  <div class="donation-link-label">
+    {{label}}
+  </div>
+  <div class="donation-link-adress">
+    {{address}}
+  </div>
+  <div class="donation-link-qrcode" *ngIf="renderQRCode">
+    <div #qrCodeContainer></div>
+  </div>
+</div>
