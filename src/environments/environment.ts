@@ -4,5 +4,15 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  charts: {
+    visitorChart: {
+      label: 'Anzahl Besucher pro Land',
+      backgroundColors: [
+        'rgba(255, 99, 132, 0.4)',
+        'rgba(54, 162, 235, 0.4)',
+        'rgba(255, 206, 86, 0.4)'
+      ]
+    }
+  }
 };

@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { StatsService } from '../shared/services/stats.service';
-
+import { VisitorInfo } from '../shared/models/visitorInfo';
+import { environment } from '../../environments/environment';
 import * as Chart from 'chart.js';
 
 @Component({
@@ -13,43 +14,66 @@ export class StatsComponent implements OnInit, AfterViewInit {
   visitorChart: any;
   visitorChartContext: any;
 
+  private visitorInfo: VisitorInfo[] = null;
+
   constructor(private _statsService: StatsService) {
   }
 
   ngOnInit() {
+    this._statsService.getVisitorsByCountries( ).subscribe(
+      result => {
+        this.visitorInfo = result.sort((n1, n2) => n2.count - n1.count);
+        this.drawChart();
+      },
+      error => {
+        console.log( 'request error' );
+      }
+    );
   }
 
   ngAfterViewInit( ) {
     this.visitorChart = document.getElementById('visitorChart');
     this.visitorChartContext = this.visitorChart.getContext('2d');
+  }
+
+  private drawChart( ) {
+    let chartLabels: string[] = [];
+    let chartData: number[] = [];
+
+    // only take the hightest 12 entries
+    let rawData = this.visitorInfo.slice(0, 12);
+
+    rawData.map( item => {
+      chartLabels.push( item.countryId );
+    });
+    rawData.map( item => {
+      chartData.push( item.count );
+    });
+
+    // repeat color cycle as backgroundColor
+    let bgColor: string[] = [];
+    let index = 0;
+    for (let i = 0; i < rawData.length; i++) {
+       if (index > environment.charts.visitorChart.backgroundColors.length) {
+         index = 0;
+       }
+       bgColor.push( environment.charts.visitorChart.backgroundColors[index] );
+
+       index++;
+    }
 
     const chart = new Chart(this.visitorChartContext, {
-      type: 'bar',
+      type: 'horizontalBar',
 
       data: {
-          labels: [
-            'CN', 'US', 'JP', 'DE', 'FR', 'RU', 'NL', 'BZ', 'CA', 'BR', 'UA', 'GB', 'ES'
-          ],
+          labels: chartLabels,
+
           datasets: [{
-              label: 'Hits',
+              label: environment.charts.visitorChart.label,
 
-              data: [9106, 5486, 4122, 2622, 1297, 920, 447, 254, 245, 227, 197, 170, 165],
+              data: chartData,
 
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.4)',
-                  'rgba(54, 162, 235, 0.4)',
-                  'rgba(255, 206, 86, 0.4)',
-                  'rgba(255, 99, 132, 0.4)',
-                  'rgba(54, 162, 235, 0.4)',
-                  'rgba(255, 206, 86, 0.4)',
-                  'rgba(255, 99, 132, 0.4)',
-                  'rgba(54, 162, 235, 0.4)',
-                  'rgba(255, 206, 86, 0.4)',
-                  'rgba(255, 99, 132, 0.4)',
-                  'rgba(54, 162, 235, 0.4)',
-                  'rgba(255, 206, 86, 0.4)',
-                  'rgba(255, 99, 132, 0.4)',
-              ],
+              backgroundColor: bgColor,
 
               borderWidth: 1
           }]
@@ -57,7 +81,10 @@ export class StatsComponent implements OnInit, AfterViewInit {
 
       options: {
         responsive: false,
-        display: true
+        display: true,
+        legend: {
+          display: false
+        }
       }
     });
   }

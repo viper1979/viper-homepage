@@ -1,0 +1,11 @@
+.access-denied {
+  background-color: #d00;
+  color: #fff;
+
+  font-size: 30px;
+  font-family: verdana;
+
+  padding: 30px 0px 30px 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

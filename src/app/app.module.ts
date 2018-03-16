@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 
 // services
@@ -20,18 +21,19 @@ import { StatsComponent } from './stats/stats.component';
 import { DisclaimerComponent } from './static/disclaimer/disclaimer.component';
 import { PrivacyComponent } from './static/privacy/privacy.component';
 import { NotFoundComponent } from './static/not-found/not-found.component';
+import { AccessDeniedComponent } from './static/access-denied/access-denied.component';
 import { AlertComponent } from './alert/alert.component';
 import { LoginComponent } from './login/login.component';
 
 // pipes
 import { AuthGuard } from './shared/guards/auth.guard';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptors';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginCustomComponent } from './login-custom/login-custom.component';
 
 const appRoutes: Routes = [
   { path: 'stats', component: StatsComponent },
   { path: 'privacy', component: PrivacyComponent },
+  { path: 'denied', component: AccessDeniedComponent },
   { path: 'disclaimer', component: DisclaimerComponent, canActivate: [AuthGuard] },
   // { path: '', component: HomeComponent, canActivate: [AuthGuard] }, <-- Only autheticated users can access this site
   // default route, when nothing match
@@ -50,12 +52,14 @@ const appRoutes: Routes = [
     PrivacyComponent,
     DisclaimerComponent,
     AlertComponent,
-    LoginComponent,
-    LoginCustomComponent
+    LoginComponent,
+    LoginCustomComponent,
+    AccessDeniedComponent
 ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot(
       appRoutes,

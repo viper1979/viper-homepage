@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../shared/models/user';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from '../shared/services/authentication.service';
 
 @Component({
   selector: 'app-login-custom',
@@ -9,9 +11,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginCustomComponent implements OnInit {
   model: User;
+  loading = false;
+  returnUrl: string;
   submitted = false;
 
-  constructor() {
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService) {
     this.model = new User();
     this.model.id = 0;
     this.model.firstName = 'P';
@@ -31,10 +37,24 @@ export class LoginCustomComponent implements OnInit {
     //     Validators.minLength(8)
     //   ]),
     // });
+
+    this.authenticationService.logout( );
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   onSubmit() {
     this.submitted = true;
+    this.authenticationService.login(this.model.username, this.model.password)
+        .subscribe(
+            data => {
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                console.error( 'error: ' + error.message );
+                this.loading = false;
+            });
   }
 
   get diagnostic() {
