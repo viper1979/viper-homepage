@@ -24,6 +24,7 @@ export class DonationLinkComponent implements OnInit, AfterViewInit {
     this.qrCodeContainer.nativeElement.innerHTML = this.generateQRCode({text: '1GwicP4cgsDvY1Mm7Mn7kko98FRc6MmGLy'}).outerHTML;
   }
 
+  // https://larsjung.de/kjua/latest/demo/
   generateQRCode(param: { text: string }): any {
     const settings = {
       render: 'image',

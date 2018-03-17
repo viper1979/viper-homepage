@@ -14,5 +14,27 @@ export const environment = {
         'rgba(255, 206, 86, 0.4)'
       ]
     }
+  },
+  donation: {
+    addresses: [
+      {
+        currency: 'ETH',
+        renderQR: true,
+        showSymbol: false,
+        address: 'patricknoll.eth'
+      },
+      {
+        currency: 'BTC',
+        renderQR: true,
+        showSymbol: false,
+        address: '1ViperZUz1UKwNqdVFdkJ175U5dAaEvpR'
+      },
+      {
+        currency: 'LTC',
+        renderQR: true,
+        showSymbol: false,
+        address: 'LdXjW27CSHueDTQf1GDGm7toMerPr8a47Y'
+      },
+    ]
   }
 };
