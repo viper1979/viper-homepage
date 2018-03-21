@@ -4,10 +4,20 @@
 .donation-link-image {
 }
 
+.donation-link-image .image {
+  height: 75px;
+  width: 75px;
+}
+
 .donation-link-label {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 30px;
 }
 
 .donation-link-adress {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 11px;
 }
 
 .donation-link-qrcode {

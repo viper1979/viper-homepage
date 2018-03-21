@@ -8,9 +8,15 @@ import * as kjua from 'kjua';
   styleUrls: ['./donation-link.component.css']
 })
 export class DonationLinkComponent implements OnInit, AfterViewInit {
-  label = 'Bitcoin';
-  renderQRCode = true;
+  currency = 'BTC';
+  renderQR = true;
+  showSymbol = true;
   address = '1GwicP4cgsDvY1Mm7Mn7kko98FRc6MmGLy';
+
+  // currency: 'BTC',
+  // renderQR: true,
+  // showSymbol: false,
+  // address: '1ViperZUz1UKwNqdVFdkJ175U5dAaEvpR'
 
   @ViewChild('qrCodeContainer')
   qrCodeContainer;
@@ -21,7 +27,7 @@ export class DonationLinkComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit( ) {
-    this.qrCodeContainer.nativeElement.innerHTML = this.generateQRCode({text: '1GwicP4cgsDvY1Mm7Mn7kko98FRc6MmGLy'}).outerHTML;
+    this.qrCodeContainer.nativeElement.innerHTML = this.generateQRCode({text: this.address}).outerHTML;
   }
 
   // https://larsjung.de/kjua/latest/demo/
@@ -38,7 +44,7 @@ export class DonationLinkComponent implements OnInit, AfterViewInit {
       text: param.text,
       rounded: 0, // roundend corners in pc= 0..100
       quiet: 3,
-      mode: 'label', // modes= "plain"; "label" or "image"
+      mode: 'plain', // modes= "plain"; "label" or "image"
       mSize: 4,
       mPosX: 50,
       mPosY: 98,
