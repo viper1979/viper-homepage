@@ -3,6 +3,7 @@ import { User } from '../shared/models/user';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../shared/services/authentication.service';
+import * as hashes from 'jshashes';
 
 @Component({
   selector: 'app-login-custom',
@@ -46,7 +47,7 @@ export class LoginCustomComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.authenticationService.login(this.model.username, this.model.password)
+    this.authenticationService.login(this.model.username, new hashes.SHA1( ).hex(this.model.password))
         .subscribe(
             data => {
                 this.router.navigate([this.returnUrl]);
