@@ -1,4 +1,5 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { ModalService } from '../shared/services/modal.service';
 import { environment } from '../../environments/environment';
 import * as kjua from 'kjua';
 
@@ -21,7 +22,8 @@ export class DonationLinkComponent implements OnInit, AfterViewInit {
   @ViewChild('qrCodeContainer')
   qrCodeContainer;
 
-  constructor() { }
+  constructor(private modalService: ModalService) {
+  }
 
   ngOnInit() {
   }
@@ -58,5 +60,13 @@ export class DonationLinkComponent implements OnInit, AfterViewInit {
     console.log("kjua settings used:", settings);
 
     return kjua(settings);
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

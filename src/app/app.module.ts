@@ -10,6 +10,7 @@ import { StatsService } from './shared/services/stats.service';
 import { AlertService } from './shared/services/alert.service';
 import { AuthenticationService } from './shared/services/authentication.service';
 import { UserService } from './shared/services/user.service';
+import { ModalService } from './shared/services/modal.service';
 
 // components
 import { HeaderComponent } from './header/header.component';
@@ -31,6 +32,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptors';
 import { LoginCustomComponent } from './login-custom/login-custom.component';
 import { DonationLinkComponent } from './donation-link/donation-link.component';
+import { ModalComponent } from './modal/modal.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -60,6 +62,8 @@ const appRoutes: Routes = [
     LoginCustomComponent,
     AccessDeniedComponent,
     DonationLinkComponent
+,
+    ModalComponent
 ],
   imports: [
     BrowserModule,
@@ -77,6 +81,7 @@ const appRoutes: Routes = [
     AuthGuard,
     AlertService,
     AuthenticationService,
+    ModalService,
     UserService,
     {
         provide: HTTP_INTERCEPTORS,

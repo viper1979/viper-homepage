@@ -10,6 +10,37 @@
         </div>
       </td>
       <td>
+        <!-- <div class="donation-link-label" [ngSwitch]='currency'>
+          <span *ngSwitchCase="'BTC'">Bitcoin</span>
+          <span *ngSwitchCase="'ETH'">Ethereum</span>
+          <span *ngSwitchCase="'LTC'">Litecoin</span>
+        </div> -->
+      </td>
+      <td>
+        <div class="donation-link-qrcode" *ngIf="renderQR" (click)="openModal('custom-modal-1')">
+          <div #qrCodeContainer></div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3">
+        <div class="donation-link-adress">
+          {{address}}
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- <table>
+    <tr>
+      <td>
+        <div class="donation-link-image" [ngSwitch]='currency' *ngIf='showSymbol'>
+          <img src="./../../assets/Bitcoin.svg.png" class="image" alt="Bitcoin" *ngSwitchCase="'BTC'">
+          <img src="./../../assets/Ethereum.svg.png" class="image" alt="Ethereum" *ngSwitchCase="'ETH'">
+          <img src="./../../assets/Litecoin.svg.png" class="image" alt="Litecoin" *ngSwitchCase="'LTC'">
+        </div>
+      </td>
+      <td>
         <div class="donation-link-label" [ngSwitch]='currency'>
           <span *ngSwitchCase="'BTC'">Bitcoin</span>
           <span *ngSwitchCase="'ETH'">Ethereum</span>
@@ -26,26 +57,6 @@
         </div>
       </td>
     </tr>
-  </table>
+  </table> -->
 
-
-  <!-- <div class="donation-link-image" [ngSwitch]='currency' *ngIf='showSymbol'>
-    <img src="./../../assets/Bitcoin.svg.png" class="image" alt="Bitcoin" *ngSwitchCase="'BTC'">
-    <img src="./../../assets/Ethereum.svg.png" class="image" alt="Ethereum" *ngSwitchCase="'ETH'">
-    <img src="./../../assets/Litecoin.svg.png" class="image" alt="Litecoin" *ngSwitchCase="'LTC'">
-  </div>
-
-  <div class="donation-link-label" [ngSwitch]='currency'>
-    <span *ngSwitchCase="'BTC'">Bitcoin</span>
-    <span *ngSwitchCase="'ETH'">Ethereum</span>
-    <span *ngSwitchCase="'LTC'">Litecoin</span>
-  </div>
-
-  <div class="donation-link-adress">
-    Adresse: {{address}}
-  </div>
-
-  <div class="donation-link-qrcode" *ngIf="renderQR">
-    <div #qrCodeContainer></div>
-  </div> -->
 </div>

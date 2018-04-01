@@ -10,13 +10,14 @@
 }
 
 .donation-link-label {
-  text-align: center;
+  /* text-align: center; */
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-size: 30px;
 }
 
 .donation-link-adress {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 11px;
 }
 
